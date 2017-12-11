@@ -1,0 +1,65 @@
+<nav class="header">
+  <div >
+
+    <div class="col-md-2 brand">
+      <div class="brand-logo">
+      <a routerLink="/view-product">
+        WEAR
+      </a>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+
+        <ul class="menu-item" *ngIf="hasRole('USER')">
+          <li class="col-md-3 menu-product" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/product">Product</a></li>
+          <li class="col-md-3 menu-men" routerLinkActive="active"><a  [routerLink]="['/slip']">Submit Slip</a></li>
+          <li class="col-md-3 menu-women" routerLinkActive="active"><a  [routerLink]="['/product', 'women']">Women</a></li>
+          <li class="col-md-3 menu-shoe" routerLinkActive="active"><a  [routerLink]="['/product', 'shoe']">Shoe</a></li>
+        </ul>
+        <ul class="menu-item" *ngIf="hasRole('SELLER')">
+          <li class="col-md-3 menu-product" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/product">Product</a></li>
+          <li class="col-md-3 menu-men" routerLinkActive="active"><a  [routerLink]="['/list-product']">Add Product</a></li>
+          <li class="col-md-3 menu-women" routerLinkActive="active"><a  [routerLink]="['/list-product']">Delete Product</a></li>
+          <li class="col-md-3 menu-shoe" routerLinkActive="active"><a  [routerLink]="['/history']">List History</a></li>
+        </ul>
+        <ul class="menu-item" *ngIf="hasRole('ADMIN')">
+          <li class="col-md-3 menu-product" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/product">Search user</a></li>
+          <li class="col-md-3 menu-men" routerLinkActive="active"><a  [routerLink]="['/slip']">Delete seller</a></li>
+          <li class="col-md-3 menu-women" routerLinkActive="active"><a  [routerLink]="['/product', 'women']">Add seller</a></li>
+          <li class="col-md-3 menu-shoe" routerLinkActive="active"><a  [routerLink]="['/product', 'shoe']">Delete user</a></li>
+        </ul>
+      </div>
+    </div>
+      <div class="col-md-2 menu-button">
+        <div class="row">
+        <button routerLink="/authentication" type="button" class="col-md-6 btn profile-btn">Profile</button>
+        <span [hidden]="isSeller"><button routerLink="/cart" type="button" class="col-md-6 btn cart-btn">Cart</button></span>
+        <span [hidden]="!isSeller"><button  routerLink="/cart" type="button" class="col-md-6 btn cart-btn">Item</button></span>
+        </div>
+
+      </div>
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!--<div class="row">-->
+  <!--<div class="col-md-7">-->
+    <!--<div class="input-group">-->
+      <!--<input type="text" class="form-control" placeholder="Search for...">-->
+      <!--<span class="input-group-btn">-->
+              <!--<button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>-->
+      <!--</span>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="checkBox col-md-1" style="margin: 0">-->
+   <!--<select>-->
+     <!--<option>Name</option>-->
+     <!--<option>Description</option>-->
+   <!--</select>-->
+  <!--</div>-->
+  <!--<div class="priceInterval col-md-4">-->
+    <!--<label>Price</label>-->
+    <!--<input type="text" placeholder="  from">&nbsp;&nbsp;-&nbsp;&nbsp;<input type="text" placeholder="to">-->
+  <!--</div>-->
+<!--</div>&lt;!&ndash; /.col-lg-6 &ndash;&gt;-->

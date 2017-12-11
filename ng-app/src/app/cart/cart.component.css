@@ -1,0 +1,49 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: none;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+  border: none;
+  border-bottom: rgba(0,0,0,.2) solid 0.5px;
+
+}
+td>.voucher{
+  text-align: left;
+}
+.input-group-btn>button{
+  color: white;
+  border-radius: 0;
+  background: #006073;
+}
+button[type=submit]{
+  margin-top: 20px;
+  color: white;
+  float: right;
+  border-radius: 0;
+  width: 130px;
+  height: 60px;
+  background: #36b8c7;
+  border: 0;
+}
+.btn-checkOut{
+  margin-bottom: 50px;
+  float: right;
+}
+.btn-back{
+  float: left;
+}
+.btn-delete{
+  background: white;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+input{
+  text-align: center;
+}

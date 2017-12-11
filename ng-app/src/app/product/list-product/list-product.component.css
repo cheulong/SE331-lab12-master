@@ -1,0 +1,61 @@
+.list-product{
+  width: 90%;
+  margin: auto;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: none;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  /*width: 150px;*/
+  border: none;
+  border-bottom: rgba(0,0,0,.2) solid 0.5px;
+
+}
+tr:hover{
+  background: #78e7ce;
+}
+input:focus{
+  background: #36b8c7;
+}
+tr:hover>td>input{
+  border-bottom: 1px solid white;
+}
+button{
+  border-radius: 0;
+  padding: 5px 10px;
+}
+
+.edit-cell{
+  width: 150px;
+}
+.btn-cell{
+  width: 10px;
+}
+.imageSize{
+  height: 60px;
+
+}
+.imageSize img{
+  height: 100%;
+  margin: 5px 0;
+}
+td>input{
+  width:70px;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid gainsboro;
+  background: transparent;
+  text-align: center;
+}
+td>input:focus{
+  border: none;
+  background: #006073;
+  color: white;
+}
+

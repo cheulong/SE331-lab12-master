@@ -1,0 +1,129 @@
+.active{
+  background:  #37aeae !important;
+}
+.header{
+  height: 90px;
+  font-family: 'Inconsolata', monospace;
+}
+.brand{
+  background: black;
+  height: 80px;
+}
+.brand-logo{
+  float: right;
+  display:block;
+  text-align: center;
+  line-height: 80px;
+  font-size: 50px;
+}
+.brand-logo>a {
+  padding-right: 20px;
+  color: white;
+  display: block;
+  width: 195px;
+  text-align: right;
+  text-decoration: none;
+}
+.col-md-2{
+  padding: 0;
+  margin: 0;
+}
+a:hover{
+  text-decoration: none;
+}
+.col-md-3 {
+  margin: 0;
+  padding: 0;
+}
+.menu-item{
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item>li{
+  height: 80px;
+  list-style: none;
+
+}
+.menu-item>li>a{
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  line-height: 80px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+}
+.menu-item>li>a:hover{
+  background:  #37aeae;
+  text-decoration: none;
+}
+.menu-item>li>a:active{
+  background:  #37aeae;
+  text-decoration: none;
+}
+.menu-product{
+  background:  #006073;
+}
+.menu-men{
+  background-color: #006073;
+}
+.menu-women{
+  background-color: #006073;
+}
+.menu-shoe{
+  background-color: #006073;
+}
+.menu-button{
+  margin: 0;
+  padding: 0;
+}
+.profile-btn,.cart-btn{
+  border-radius: 0;
+  height: 80px;
+  color: white;
+}
+.profile-btn:hover{
+  background:  #36b8c7;
+}
+.profile-btn{
+  background: #37aeae;
+}
+.cart-btn{
+  background: #78e7ce;
+}
+input{
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: solid gray 1px;
+  box-shadow: 0 0;
+  border-radius: 0;
+}
+.input-group{
+  margin-top: 8px;
+}
+.input-group-btn>button{
+  margin-left: 10px;
+  border-radius: 0;
+  border: 0;
+  background: #37aeae;
+}
+.input-group-btn>button:hover{
+   background: #78e7ce;
+ }
+
+.fa-search{
+  color: white;
+}
+.checkBox>select{
+  margin-top: 20px;
+}
+.priceInterval{
+  margin-top: 20px;
+  padding-left: 50px;
+}
+.priceInterval>input{
+  width: 100px;
+}

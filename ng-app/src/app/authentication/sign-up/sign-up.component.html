@@ -1,0 +1,43 @@
+<p class="signin-header">New customer?</p>
+<form >
+
+  <div class="signin-form collapse" id="collapseExample">
+
+  <div class="signin-form">
+
+    <h5>Register</h5>
+    <div class="form-group">
+
+      <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="First name">
+
+    </div>
+    <div class="form-group">
+
+      <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Last name">
+
+    </div>
+    <div class="form-group">
+
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+    </div>
+    <div class="form-group">
+
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-group">
+
+      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  </div>
+  <span [hidden]=!isOpen>
+  <button class="btn btn-primary btn-signup" (click)="open()" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Create an account
+  </button>
+</span>
+</form>
+
+
+

@@ -1,0 +1,70 @@
+.row{
+  margin-bottom: 30px;
+}
+.imageBox{
+  position: relative;
+  overflow: hidden;
+}
+.imageSize{
+  width: 227px;
+  height: 337px;
+}
+.imageBox img {
+  width: 100%;
+}
+.textBox{
+  position: absolute;
+  bottom:-100%;
+  left:0;
+  width:100%;
+  height:100%;
+  background: #78e7ce;
+  transition: .5s;
+}
+.textBox>div{
+  color: white;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.imageBox:hover .textBox{
+  bottom: 0%;
+  cursor: pointer;
+}
+.input-group{
+  margin-top: 8px;
+}
+.input-group-btn>button{
+  margin-left: 10px;
+  border-radius: 0;
+  border: 0;
+  background: #37aeae;
+}
+.input-group-btn>button:hover{
+  background: #78e7ce;
+}
+
+.fa-search{
+  color: white;
+}
+.checkBox>select{
+  margin-top: 20px;
+}
+.priceInterval{
+  margin-top: 20px;
+  padding-left: 50px;
+}
+.priceInterval>input{
+  width: 100px;
+}
+input{
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: solid gray 1px;
+  box-shadow: 0 0;
+  border-radius: 0;
+}

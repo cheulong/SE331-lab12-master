@@ -1,0 +1,39 @@
+.signin-header{
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+form{
+  height: 400px;
+  width: 540px;
+  border: solid 0.1px #78e7ce;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  padding-top: 0;
+}
+input{
+  border-radius: 0;
+  box-shadow: none;
+}
+.signin-form{
+  width: 300px;
+  margin: 100px auto 100px auto;
+}
+
+.form-forgotpassword>a{
+  color: #36b8c7;
+}
+.form-forgotpassword>a:hover{
+  color: #006073;
+}
+button[type=submit]{
+  float: right;
+  border-radius: 0;
+  width: 80px;
+  height: 60px;
+  background: #36b8c7;
+  border: 0;
+}
+

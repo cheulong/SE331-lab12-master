@@ -1,0 +1,38 @@
+.productDetail{
+  margin-top: 20px;
+}
+.title{
+  text-align: center;
+}
+li{
+  display: inline-block;
+}
+.color_pick{
+  display: block;
+  height: 23px;
+  width: 23px;
+  cursor: pointer;
+}
+.selected{
+  border: solid 2px black;
+}
+.quantity>input{
+  width: 50px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+button[type=submit]{
+  margin-top: 20px;
+  color: white;
+  float: right;
+  border-radius: 0;
+  width: 130px;
+  height: 60px;
+  background: #36b8c7;
+  border: 0;
+}
+.btn-addToCart{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

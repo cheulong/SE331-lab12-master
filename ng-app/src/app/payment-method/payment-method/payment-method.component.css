@@ -1,0 +1,22 @@
+.payment{
+  margin-top: 20px;
+}
+ul{
+  margin: 0;
+  float: right;
+
+}
+.sideBar>li{
+  margin: 0;
+  display: block;
+  height: 100px;
+  width: 200px;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+}
+
+.active{
+  background: #37aeae;
+  color: white;
+}

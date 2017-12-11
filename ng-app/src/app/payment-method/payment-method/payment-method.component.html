@@ -1,0 +1,21 @@
+<div class="payment">
+  <div class="col-md-3">
+    <ul class="sideBar">
+      <li [ngClass]="{'active': bank }" (click)="payByBank()">Bank Transfer</li>
+      <li [ngClass]="{'active': credit }" (click)="payByCredit()">Credit Card</li>
+      <li [ngClass]="{'active': paypal }" (click)="payByPaypal()">Paypal</li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+   <span [hidden]=!bank>
+    <div class="col-md-4"><app-bank-transfer></app-bank-transfer></div>
+     </span>
+    <span [hidden]=!credit>
+  <div class="col-md-4"><app-creditcard></app-creditcard></div>
+      </span>
+    <span [hidden]=!paypal>
+    <div class="col-md-4"><app-paypal-payment></app-paypal-payment></div>
+      </span>
+  </div>
+
+</div>

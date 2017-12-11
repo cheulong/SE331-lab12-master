@@ -1,0 +1,36 @@
+<script src="view-product.component.ts"></script>
+<div class="productDetail">
+<div class="col-md-6"><img style="width: 80%" [src]="product?.image" alt=""></div>
+<div class="col-md-6">
+  <div class="title">
+    <h1>{{product?.productName}}</h1>
+  </div>
+  <p><b>Description:</b> {{product?.description}}</p>
+  <h3>Color</h3>
+  <ul>
+    <li><a class="color_pick selected" style="background: red" ></a></li>
+    <li><a class="color_pick" style="background: black" ></a></li>
+  </ul>
+  <h3>Size</h3>
+  <ul>
+    <li><a class="color_pick" >{{product?.size}}</a></li>
+
+  </ul>
+
+  <div class="quantity">
+      <h3>Quantity</h3>
+      <input type="text" class="form-control" [(ngModel)]="qtn" (keyup)="calculateTotalPrice()">
+  </div>
+  <div class="col-md-6">
+    <br>
+    <h3>Total</h3>
+    <h1>
+     {{totalPrice}}$
+    </h1>
+
+  </div>
+  <div class="col-md-6 btn-addToCart">
+    <button type="submit" class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>
+  </div>
+</div>
+</div>

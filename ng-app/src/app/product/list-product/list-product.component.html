@@ -1,0 +1,47 @@
+<div class="list-product">
+  <div class="title">
+    <h1 style="float: left">ProductList</h1>
+    <span [hidden]=isAdd><button  class="btn btn-primary" style="float: right;margin-top: 20px;margin-right: 20px" (click)="addProduct()">Add Product</button>
+    </span>
+  </div>
+  <table>
+    <tr>
+      <th class="edit-cell">ID</th>
+      <th class="edit-cell">Image</th>
+      <th class="edit-cell">Product Name</th>
+      <th class="edit-cell">Description</th>
+      <th class="edit-cell">Price/Unit</th>
+      <th class="edit-cell">Size</th>
+      <th class="edit-cell">Color</th>
+      <th class="edit-cell">QTY</th>
+      <td class="btn-cell"></td>
+      <td class="btn-cell"></td>
+    </tr>
+    <tr [hidden]=!isAdd style="height: 70px">
+
+      <td></td>
+      <td><input #fileInput type="file" class="btn btn-default" id="exampleInputFile" (change)="onFileChange($event,product)" ></td>
+      <td><input  [(ngModel)]="product.productName" placeholder="name" name="productName" id="productName"></td>
+      <td><input  [(ngModel)]="product.description" placeholder="description"></td>
+      <td><input  [(ngModel)]="product.productPrice" placeholder="price">$</td>
+      <td><input   [(ngModel)]="product.size" placeholder="size"></td>
+      <td><input   [(ngModel)]="product.color" placeholder="color"></td>
+      <td><input   [(ngModel)]="product.productQuantity" placeholder="quantity"></td>
+      <td><button type="submit" class="btn btn-primary" (click)="addProductObject(product)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <button class="btn btn-danger" (click)="addProduct()"><i class="fa fa-ban" aria-hidden="true"></i></button></td>
+
+    </tr>
+    <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td class="imageSize"><img [src]="product.image"></td>
+      <td><input [(ngModel)]="product.productName"></td>
+      <td><input [(ngModel)]="product.description"></td>
+      <td><input [(ngModel)]="product.productPrice">$</td>
+      <td><input [(ngModel)]="product.size"></td>
+      <td><input [(ngModel)]="product.color"></td>
+      <td><input [(ngModel)]="product.productQuantity"></td>
+      <td><button class="btn btn-warning" (click)="updateProduct(product,product.image)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button class="btn btn-danger" (click)="deleteProduct(product)"><i class="fa fa-ban" aria-hidden="true"></i></button></td>
+    </tr>
+  </table>
+  <br>
+</div>

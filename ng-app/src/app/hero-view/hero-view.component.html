@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-7">
+    <div class="input-group">
+      <input type="text" class="form-control"  [(ngModel)]="search" placeholder="Search for...">
+      <span class="input-group-btn">
+              <button class="btn btn-default" type="button" (click)="onSearch()"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </span>
+    </div>
+  </div>
+  <div class="checkBox col-md-1" style="margin: 0">
+    <select [(ngModel)]="value">
+      <option [selected]="value==1">Name</option>
+      <option [selected]="value==2">Description</option>
+      <option [selected]="value==3">Price</option>
+    </select>
+  </div>
+  <div  class="priceInterval col-md-4">
+    <label>Price</label>
+    <input  type="text" placeholder="  from" [(ngModel)]="search1">&nbsp;&nbsp;-&nbsp;&nbsp;<input  type="text" placeholder="to"  [(ngModel)]="search2">
+  </div>
+</div><!-- /.col-lg-6 -->
+
+<div style="margin-top: 40px">
+  <div class="row">
+    <div *ngFor="let product of products">
+      <div class="col-md-3 imageBox" (click)="showDetail(product)">
+        <img class="imageSize" [src]="product.image" alt="">
+        <div class="textBox">
+          <div class="textBox-content">
+          <h4>{{product.productName}}</h4>
+          <p>Price: {{product.productPrice}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

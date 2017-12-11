@@ -1,0 +1,35 @@
+<div>
+  <div class="title">
+    <h1>Confirm?</h1>
+  </div>
+  <table>
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Price/Unit</td>
+      <td>QTY</td>
+      <td>Total</td>
+    </tr>
+    <tr *ngFor="let item of cartItems ;let i = index">
+      <td>{{item.product.productId}}</td>
+      <td>{{item.product.productName}}</td>
+      <td>{{item.product.productPrice}}$</td>
+      <td>{{item.productQuantity}}</td>
+      <td>{{item.totalPrice}}$</td>
+    </tr>
+    <tr>
+      <td colspan="3">
+
+      </td>
+
+      <td>Total</td>
+      <td>{{totalCartPrice}}$</td>
+    </tr>
+  </table>
+  <div class="btn-checkOut">
+    <button type="submit" class="btn btn-primary" (click)="payment()">Go to payment</button>
+  </div>
+  <div class="btn-back">
+    <button type="submit" class="btn btn-primary" (click)="backClicked()">Back</button>
+  </div>
+</div>
