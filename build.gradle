@@ -29,7 +29,7 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-jersey')
 	compile('org.springframework.boot:spring-boot-starter-web')
-
+	compile("org.springframework:spring-jdbc")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile 'org.springframework.boot:spring-boot-starter-tomcat'
 	compile group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: '2.17'

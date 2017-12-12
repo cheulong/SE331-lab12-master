@@ -2,6 +2,7 @@ package camt.cbsd.services;
 
 import camt.cbsd.entity.Student;
 
+import javax.transaction.Transactional;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,4 +18,10 @@ public interface StudentService {
     Student addStudent(Student student, String imageFileName, BufferedImage image) throws IOException;
     Student getStudentForTransfer(String username);
     List<Student>queryStudent(String query);
+
+    @Transactional
+    List<Student> queryStudentByDate(String query);
+
+    @Transactional
+    List<Student> queryStudentByStatue(String query);
 }

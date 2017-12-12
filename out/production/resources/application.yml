@@ -1,7 +1,7 @@
 spring:
   profiles:
     active:
-      - DBDataSource
+      - DB1
       - inMemoryDB
   http:
     multipart:
@@ -39,3 +39,4 @@ spring:
 server:
   baseUrl: https://s3-ap-southeast-1.amazonaws.com/se331/
   imageUrl: pics/
+---

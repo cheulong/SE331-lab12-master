@@ -72,13 +72,17 @@ export class StudentsDataServerService {
   //
   // }
 
-  findStudent(search:string){
+  findStudent(search:string,value:any){
     let student: Student;
     let params: URLSearchParams = new URLSearchParams();
     params.set('search', search);
-    return this.http.get('http://localhost:8080/students/',{headers:this.headers,search:params})
-      .map(res => res.json());
-
+    if(value==="Date") {
+      return this.http.get('http://localhost:8080/students/date/' + search)
+        .map(res => res.json());
+    }else if (value==="Paid"){
+      return this.http.get('http://localhost:8080/students/paid/' + search)
+        .map(res => res.json());
+    }
   }
 
   addStudent(student: Student,file:any) {

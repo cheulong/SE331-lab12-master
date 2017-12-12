@@ -14,4 +14,8 @@ public interface StudentDao {
     Integer size();
     Student findByUsername(String username);
     List<Student>getStudents(String searchText);
+
+    List<Student> findByStatue(String query);
+
+    List<Student> findByDate(String query);
 }

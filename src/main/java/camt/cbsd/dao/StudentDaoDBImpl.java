@@ -14,7 +14,7 @@ import java.util.List;
  * Created by Dto on 07-Apr-17.
  */
 @Repository
-@Profile("DBDataSource")
+@Profile("DB1")
 public class StudentDaoDBImpl implements StudentDao {
     StudentRepository studentRepository;
 
@@ -51,5 +51,14 @@ public class StudentDaoDBImpl implements StudentDao {
     public List<Student>getStudents(String searchText){
       // return studentRepository.findByNameIgnoreCaseContaining(searchText);
         return studentRepository.findByNameIgnoreCaseContainingOrSurnameIgnoreCaseContaining(searchText, searchText);
+    }
+    @Override
+    public List<Student>findByDate(String query){
+        return studentRepository.findByPenAmount(query);
+    }
+
+    @Override
+    public List<Student>findByStatue(String query){
+        return studentRepository.findByFeature(query);
     }
 }

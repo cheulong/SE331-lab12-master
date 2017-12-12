@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {StudentsDataServerService} from "../service/students-data-server.service";
 import {Student} from "../service/student";
+import {Observable} from "rxjs/Observable";
 
 
 
@@ -13,9 +14,9 @@ import {Student} from "../service/student";
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent implements OnInit {
-
+  value:any;
   students: Student[];
-
+  search:string;
   constructor(private studentDataService: StudentsDataServerService, private router: Router ) {
   }
 
@@ -25,5 +26,13 @@ export class HistoryComponent implements OnInit {
   }
   showDetail(student: Student){
     this.router.navigate(['/tranDetail',student.id]);
+  }
+  onSearch(){
+    console.log(this.search)
+    console.log(this.value)
+    this.studentDataService.findStudent(this.search,this.value)
+      .subscribe(
+        products=>this.students=products
+      )
   }
 }

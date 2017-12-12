@@ -2,14 +2,14 @@
   <div class="row">
   <div class="col-md-7">
     <div class="input-group">
-      <input type="text" class="form-control"  [(ngModel)]="search" placeholder="Search for...">
+      <input type="text" class="form-control" name="sdf" [(ngModel)]="search" placeholder="Search for...">
       <span class="input-group-btn">
               <button class="btn btn-default" type="button" (click)="onSearch()"><i class="fa fa-search" aria-hidden="true"></i></button>
       </span>
     </div>
   </div>
   <div class="checkBox col-md-5" style="margin: 0">
-    <select [(ngModel)]="value">
+    <select [(ngModel)]="value" name="sf">
       <option [selected]="value==1">Date</option>
       <option [selected]="value==2">Paid</option>
     </select>

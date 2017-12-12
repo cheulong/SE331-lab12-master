@@ -1,5 +1,6 @@
 package camt.cbsd.controller;
 
+import camt.cbsd.entity.Product;
 import camt.cbsd.entity.Student;
 import camt.cbsd.services.StudentService;
 import camt.cbsd.services.StudentServiceImpl;
@@ -128,5 +129,24 @@ public class StudentController {
             //http code 204
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
+    }
+
+    @GetMapping("students/date/{search1}")
+    public ResponseEntity<?> queryProduct3(@PathVariable("search1") String query1) {
+        List<Student> products =studentService.queryStudentByDate(query1);
+        if (products != null)
+            return ResponseEntity.ok(products);
+        else
+            //http code 204
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+    @GetMapping("students/paid/{search2}")
+    public ResponseEntity<?> queryProduct4(@PathVariable("search2") String query2) {
+        List<Student> products =studentService.queryStudentByStatue(query2);
+        if (products != null)
+            return ResponseEntity.ok(products);
+        else
+            //http code 204
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

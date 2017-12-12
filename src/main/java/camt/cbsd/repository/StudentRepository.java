@@ -17,4 +17,6 @@ public interface StudentRepository extends CrudRepository <Student,Long> {
     List<Student> findByNameIgnoreCaseContainingOrderByName(String name);
     List<Student> findBySurnameIgnoreCaseContaining(String surname);
     List<Student> findByNameIgnoreCaseContainingOrSurnameIgnoreCaseContaining(String name, String surname);
+    List<Student> findByPenAmount(String name);
+    List<Student> findByFeature(String name);
 }

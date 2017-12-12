@@ -84,4 +84,20 @@ public class StudentServiceImpl implements StudentService {
             return studentDao.getStudents();
         return studentDao.getStudents(query);
     }
+    @Override
+    @Transactional
+    public List<Student> queryStudentByDate(String query){
+        if(query==null||query.equals(""))
+            return studentDao.getStudents();
+        return studentDao.findByDate(query);
+
+    }
+
+    @Override
+    @Transactional
+    public List<Student> queryStudentByStatue(String query){
+        if(query==null||query.equals(""))
+            return studentDao.getStudents();
+        return studentDao.findByStatue(query);
+    }
 }

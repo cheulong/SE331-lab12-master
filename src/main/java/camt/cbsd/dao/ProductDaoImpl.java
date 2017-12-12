@@ -4,12 +4,14 @@ import camt.cbsd.entity.Product;
 import camt.cbsd.repository.ProductRepository;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 
 @Repository
+@Profile("DB1")
 public class ProductDaoImpl implements ProductDao {
     ProductRepository productRepository;
     @Autowired

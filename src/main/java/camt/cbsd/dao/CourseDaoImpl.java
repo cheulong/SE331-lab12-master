@@ -4,6 +4,7 @@ import camt.cbsd.entity.Course;
 import camt.cbsd.repository.CourseRepository;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  * Created by Dto on 07-Apr-17.
  */
 @Repository
+@Profile("DB1")
 public class CourseDaoImpl implements CourseDao {
     CourseRepository courseRepository;
     @Autowired
