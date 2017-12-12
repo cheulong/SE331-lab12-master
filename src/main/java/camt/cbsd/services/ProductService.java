@@ -9,13 +9,16 @@ import java.util.List;
 public interface ProductService {
     List<Product> list();
     Product add(Product course);
+
+    Product save(Product product);
+
     Product findById(long id);
 
     @Transactional
     void removeProductById(long id);
 
     @Transactional
-    void updateProduct(Product product);
+    void updateProduct(Product product,long id);
 
     @Transactional
     List<Product> queryProduct(String query);

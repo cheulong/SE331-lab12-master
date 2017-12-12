@@ -9,6 +9,7 @@ import {PaymentMethodComponent} from "./payment-method/payment-method/payment-me
 import {ListProductComponent} from "./product/list-product/list-product.component";
 import {SubmitSlipComponent} from "./submit-slip/submit-slip.component";
 import {HistoryComponent} from "./history/history.component";
+import {TranDetailComponent} from "./tran-detail/tran-detail.component";
 
 const appRoutes: Routes=[
   { path: '', redirectTo: 'hero-view', pathMatch: 'full' },
@@ -28,6 +29,9 @@ const appRoutes: Routes=[
   },
   {
     path: 'detail/:id',component:ViewProductComponent
+  },
+  {
+    path: 'tranDetail/:id',component:TranDetailComponent
   },
   {
     path: 'list-product',component:ListProductComponent

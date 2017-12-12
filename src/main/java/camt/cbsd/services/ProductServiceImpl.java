@@ -34,7 +34,11 @@ public class ProductServiceImpl implements ProductService {
     public Product add(Product product) {
         return productDao.add(product);
     }
+    @Override
+    public Product save(Product product) {
 
+        return productDao.saveProduct(product);
+    }
     @Override
     @Transactional
     public Product findById(long id){
@@ -50,7 +54,9 @@ public class ProductServiceImpl implements ProductService {
     }
     @Override
     @Transactional
-    public void updateProduct( Product product){ this.productDao.updateProduct(product);
+    public void updateProduct( Product product,long id){
+
+        this.productDao.updateProduct(product);
     }
     @Override
     @Transactional

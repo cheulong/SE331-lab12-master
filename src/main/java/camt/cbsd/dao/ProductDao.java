@@ -9,6 +9,9 @@ public interface ProductDao {
     Product add(Product course);
     List<Product> list();
     Product findById(long id);
+
+    Product saveProduct(Product product);
+
     void removeProductById(long id);
     void updateProduct(Product product);
     List<Product> findByProductName(String searchText);

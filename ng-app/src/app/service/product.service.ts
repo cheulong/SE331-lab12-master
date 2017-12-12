@@ -47,24 +47,17 @@ export class ProductService {
       ;
   }
 
-  addProduct(product:Product,file:any):Observable<Product>{
-    const  formData = new FormData();
-    let fileName : string;
-
-    formData.append('file',file);
-    return this.http.post('http://localhost:8080/product/images',formData).flatMap(fileName=>{
-      product.image = fileName.text();
-      let headers = new Headers({'Content-Type': 'application/json'});
-      let options = new RequestOptions({headers: headers, method: 'post'});
-      let body = JSON.stringify(product);
-      return this.http.post('http://localhost:8080/product', body, options)
-        .map(res => {
-          return res.json()
-        })
-        .catch((error: any) => {
-          return Observable.throw(new Error(error.status))
-        })
-    })
+  addProduct(product:Product){
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers, method: 'post'});
+    let body = JSON.stringify(product);
+    return this.http.post('http://localhost:8080/product/', body, options)
+      .map(res => {
+        return res.json()
+      })
+      .catch((error: any) => {
+        return Observable.throw(new Error(error.status))
+      })
   }
 
   // addProduct(product: Product, file: any) {
@@ -99,26 +92,18 @@ export class ProductService {
     return Promise.reject(error.message || error);
   }
 
-  updateProduct(product:Product,file?: any){
-    let formData = new FormData();
-
-
-console.log(file);
-    formData.append('file', file);
-    return this.http.post('http://localhost:8080/product/images', formData)
-      .flatMap(filename => {
-        product.image = file;
+  updateProduct(product:Product){
         let headers = new Headers({'Content-Type': 'application/json'});
         let options = new RequestOptions({headers: headers, method: 'post'});
         let body = JSON.stringify(product);
-        return this.http.put('http://localhost:8080/product', body, options)
+        return this.http.post('http://localhost:8080/product/'+product.id, body, options)
           .map(res => {
             return res.json()
           })
           .catch((error: any) => {
             return Observable.throw(new Error(error.status))
           })
-      })
+
   }
   findProduct(search:string,value:any,search1?:any,search2?:any){
     let product:Product;

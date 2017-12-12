@@ -26,6 +26,7 @@ import { SubmitSlipComponent } from './submit-slip/submit-slip.component';
 import {AuthenticationService} from "./service/authentication.service";
 import { HistoryComponent } from './history/history.component';
 import {StudentsDataServerService} from "./service/students-data-server.service";
+import { TranDetailComponent } from './tran-detail/tran-detail.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,8 @@ import {StudentsDataServerService} from "./service/students-data-server.service"
     SubmitSlipComponent,
 
     HistoryComponent,
+
+    TranDetailComponent,
 
 
   ],

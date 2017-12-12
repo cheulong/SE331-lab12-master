@@ -116,7 +116,7 @@ public class ProductController {
 
     }
 
-    @PostMapping("/product")
+    @PostMapping("/product/")
     public ResponseEntity<?> addProduct(@RequestBody Product product) {
         productService.add(product);
         return ResponseEntity.ok(product);
@@ -129,10 +129,18 @@ public class ProductController {
     }
 
 
-    @PostMapping("/product/{id}")
-    public ResponseEntity<?> updateProduct(@RequestBody Product product) {
-        productService.updateProduct(product);
-        return ResponseEntity.ok(productService.list());
+    @PostMapping("product/{id}")
+    public ResponseEntity getStudent(@PathVariable("id")long id,@RequestBody Product product){
+        Product oldProduct = productService.findById(id);
+        if(product!=null && oldProduct!=null){
+            long oldProductId = oldProduct.getId();
+            oldProduct = product;
+            oldProduct.setId(oldProductId);
+            productService.save(oldProduct);
+            return ResponseEntity.ok(oldProduct);
+        }else{
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }
     }
 
     @GetMapping("product/search/name/{search}")

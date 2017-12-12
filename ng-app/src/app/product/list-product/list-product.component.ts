@@ -29,12 +29,13 @@ export class ListProductComponent implements OnInit {
     this.productService.deleteProduct(product.id);
     this.refresh();
   }
-  updateProduct(product:Product,file:string){
+  updateProduct(product:Product){
+    console.log(product)
     let result: Product;
+    console.log(product)
 
-    let inputEl: HTMLInputElement = this.inputEl.nativeElement;
 
-    this.productService.updateProduct(product,file)
+    this.productService.updateProduct(product)
       .subscribe(resultProduct => {
         result = resultProduct
         if (result != null){
@@ -43,6 +44,7 @@ export class ListProductComponent implements OnInit {
           alert("Error in adding the product");
         }
       });
+
 
 
 
@@ -57,11 +59,12 @@ export class ListProductComponent implements OnInit {
     console.log(product)
     let result: Product;
     console.log(product)
-    let inputEl: HTMLInputElement = this.inputEl.nativeElement;
 
-    this.productService.addProduct(product,inputEl.files.item(0))
+
+    this.productService.addProduct(product)
       .subscribe(resultProduct => {
         result = resultProduct
+        console.log("Test");
         if (result != null){
           this.router.navigate(['/list-product']);
         }else{

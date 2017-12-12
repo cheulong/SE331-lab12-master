@@ -31,6 +31,10 @@ public class ProductDaoImpl implements ProductDao {
     public Product findById(long id) {
         return productRepository.findOne(id);
     }
+    @Override
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
+    }
 
     @Override
     public void removeProductById(long id){

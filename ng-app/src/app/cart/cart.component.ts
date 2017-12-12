@@ -18,11 +18,14 @@ export class CartComponent implements OnInit {
   voucher:number=0;
   success=false;
   invalid=false;
-  constructor(private cartService:CartService,private _location: Location,private router:Router) { }
+  constructor(private cartService:CartService,private _location:Location,private router:Router) { }
 
   ngOnInit() {
-    localStorage.getItem('cart')
-    this.getItemForCart();
+    if(localStorage.length<=3){
+      this.router.navigate(['authentication'])
+    }
+    this.cartItems = this.cartService.getSelectedItems();
+
     this.calculateTotalCartPrice();
   }
   getItemForCart(): void{
@@ -61,6 +64,7 @@ export class CartComponent implements OnInit {
     this._location.back();
   }
   checkOut(){
+
     this.cartService.setVoucher(this.voucher);
     this.router.navigate(['confirm-page']);
   }

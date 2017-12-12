@@ -6,7 +6,7 @@ export class Student{
 	surname: string;
 	gpa: number;
 	image: string;
-	featured:boolean;
+	feature:string;
 	penAmount:number;
 	description:string;
   enrolledCourse:Course[];

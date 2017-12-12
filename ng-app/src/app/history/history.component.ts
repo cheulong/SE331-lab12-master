@@ -24,6 +24,6 @@ export class HistoryComponent implements OnInit {
       .subscribe(students => this.students = students);
   }
   showDetail(student: Student){
-    this.router.navigate(['/detail',student.id]);
+    this.router.navigate(['/tranDetail',student.id]);
   }
 }

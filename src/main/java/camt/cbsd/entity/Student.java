@@ -40,8 +40,8 @@ public class Student {
     double gpa;
     @JsonView(View.Login.class)
     String image;
-    boolean feature;
-    int penAmount;
+    String feature;
+    String penAmount;
     String description;
     @OneToOne(mappedBy = "student")
     @JsonManagedReference
