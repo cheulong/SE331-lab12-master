@@ -21,9 +21,7 @@ export class CartComponent implements OnInit {
   constructor(private cartService:CartService,private _location:Location,private router:Router) { }
 
   ngOnInit() {
-    if(localStorage.length<=3){
-      this.router.navigate(['authentication'])
-    }
+
     this.cartItems = this.cartService.getSelectedItems();
 
     this.calculateTotalCartPrice();
@@ -34,6 +32,7 @@ export class CartComponent implements OnInit {
 
   }
   calculateTotalPrice(item:Item){
+
     if(item.productQuantity<=0&&item.productQuantity.valueOf()){
       item.productQuantity=1;
     }
@@ -64,9 +63,13 @@ export class CartComponent implements OnInit {
     this._location.back();
   }
   checkOut(){
+    if(localStorage.getItem('currentUser')){
 
     this.cartService.setVoucher(this.voucher);
     this.router.navigate(['confirm-page']);
+  }else{
+      this.router.navigate(['authentication']);
+    }
   }
   checkVoucher(code:number){
 

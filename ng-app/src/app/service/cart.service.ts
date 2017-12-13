@@ -20,6 +20,12 @@ export class CartService{
   getSelectedItems():Item[]{
     return JSON.parse(localStorage.getItem("cart"));
   }
+  updateCart(product?: Product, productQuantity?: number,totalPrice?:number){
+    if(localStorage.getItem("cart")){
+      localStorage.removeItem('cart');
+    }
+    localStorage.setItem('cart',JSON.stringify(this.selectedItems));
+  }
   setVoucher(voucher:number):any{
     if(voucher==0.05)
     this.getVoucherPrice=voucher;
