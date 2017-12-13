@@ -28,8 +28,7 @@ export class HistoryComponent implements OnInit {
     this.router.navigate(['/tranDetail',student.id]);
   }
   onSearch(){
-    console.log(this.search)
-    console.log(this.value)
+
     this.studentDataService.findStudent(this.search,this.value)
       .subscribe(
         products=>this.students=products

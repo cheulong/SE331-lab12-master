@@ -8,10 +8,11 @@
       </span>
     </div>
   </div>
-  <div class="checkBox col-md-5" style="margin: 0">
-    <select [(ngModel)]="value" name="sf">
+  <div class="checkBox col-md-5" style="margin: 0" >
+    <select [(ngModel)]="value" name="sf" (click)="onSearch()">
       <option [selected]="value==1">Date</option>
       <option [selected]="value==2">Paid</option>
+      <option [selected]="value==3">Pending</option>
     </select>
   </div>
   </div>

@@ -4,6 +4,7 @@ import {Http, Headers, Response, RequestOptions,URLSearchParams} from '@angular/
 import {Observable} from "rxjs/Rx";
 import {AuthenticationService} from './authentication.service';
 import {Student} from "./student";
+import {isUndefined} from "util";
 
 
 @Injectable()
@@ -72,15 +73,26 @@ export class StudentsDataServerService {
   //
   // }
 
-  findStudent(search:string,value:any){
+  findStudent(search?:string,value?:any){
+    console.log(search)
+    console.log(value)
     let student: Student;
     let params: URLSearchParams = new URLSearchParams();
     params.set('search', search);
     if(value==="Date") {
-      return this.http.get('http://localhost:8080/students/date/' + search)
-        .map(res => res.json());
+      if(search===""||typeof search === 'undefined') {
+        return this.http.get('http://localhost:8080/student')
+          .map(res => res.json());
+      }else {
+        return this.http.get('http://localhost:8080/students/date/' + search)
+          .map(res => res.json());
+      }
+
     }else if (value==="Paid"){
-      return this.http.get('http://localhost:8080/students/paid/' + search)
+      return this.http.get('http://localhost:8080/students/paid/Paid')
+        .map(res => res.json());
+    } else if(value==="Pending"){
+      return this.http.get('http://localhost:8080/students/paid/Pending')
         .map(res => res.json());
     }
   }

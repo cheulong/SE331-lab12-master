@@ -82,14 +82,14 @@ public class DataLoader implements ApplicationRunner{
     public void run(ApplicationArguments args) throws Exception {
         imageBaseUrl = baseUrl + imageUrl;
         Student student1 = Student.builder().studentId("SE-001").name("Mitsuha").surname("Miyamizu")
-                .gpa(20).image("Bangkok").feature("pending")
-                .penAmount("12.12.2017").description("Paypal").build();
+                .gpa(20).image("Bangkok").feature("Pending")
+                .penAmount("12-12-2017").description("Paypal").build();
         Student student2 = Student.builder().studentId("SE-002").name("Prayuth").surname("The minister")
-                .gpa(15).image("Chiang Mai").feature("paid")
-                .penAmount("11.12.2017").description("Bank Transfer").build();
+                .gpa(15).image("Chiang Mai").feature("Paid")
+                .penAmount("11-12-2017").description("Bank Transfer").build();
         Student student3 = Student.builder().studentId("SE-003").name("Jurgen").surname("Kloop")
-                .gpa(10).image("Kon Kaen").feature("paid")
-                .penAmount("10.12.2017").description("Credit").build();
+                .gpa(10).image("Kon Kaen").feature("Paid")
+                .penAmount("10-12-2017").description("Credit").build();
 
         Product product1 = Product.builder().productId("1").productName("mario1").productPrice(12.0).productQuantity(10)
                 .image(imageBaseUrl+"a.jpg").description("good shirt").size("M").color("Red").build();
