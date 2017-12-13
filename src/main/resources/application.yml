@@ -28,6 +28,14 @@ spring:
     username: sa
     password:
 ---
+ spring:
+    profiles: inMemoryDB2
+    datasource:
+      url: jdbc:h2:mem:database2;DB_CLOSE_DELAY=- 1;DB_CLOSE_ON_EXIT=FALSE
+      driverClassName: org.h2.Driver
+      username: sa
+      password:
+---
 spring:
   profiles: local
 server:
