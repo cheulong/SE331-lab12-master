@@ -20,6 +20,7 @@
     <tr [hidden]=!isAdd style="height: 70px">
 
       <td></td>
+      <td><input #fileInput type="file" class="btn btn-default" id="exampleInputFile" (change)="onFileChange($event,product)" ></td>
       <td><input  [(ngModel)]="product.productName" placeholder="name" name="productName" id="productName"></td>
       <td><input  [(ngModel)]="product.description" placeholder="description"></td>
       <td><input  [(ngModel)]="product.productPrice" placeholder="price">$</td>

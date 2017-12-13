@@ -37,3 +37,34 @@
 </div>
 
 
+<form class="form-horizontal ">
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Product name : </label>
+    <div class="col-sm-8">
+      <input type="text" [(ngModel)]="product1.productName" class="form-control" id="productName" placeholder="Product Name" name="productName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Product price : </label>
+    <div class="col-sm-8">
+      <input type="number" [(ngModel)]="product1.productPrice"  class="form-control" id="productPrice" pattern="[0-9]" placeholder="Product Price" name="productPrice">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">File input : </label>
+    <div class="col-sm-8">
+      <input #fileInput type="file" class="btn btn-default" id="exampleInputFile" (change)="onFileChange($event,product1)" >
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Description : </label>
+    <div class="col-sm-8">
+      <textarea class="form-control"  [(ngModel)]="product1.Description" id="ProductDescription" placeholder="Description" row="3" name="ProductDescription"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-10">
+      <button type="submit" class="btn btn-primary" (click)="addProduct(product1)" >Add product</button>
+    </div>
+  </div>
+</form>

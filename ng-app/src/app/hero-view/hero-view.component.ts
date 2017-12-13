@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Product} from "../product/product";
 import {ProductService} from "../service/product.service";
 import {Router} from "@angular/router";
@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 })
 export class HeroViewComponent implements OnInit {
   products: Product[];
+  product1: any={};
   search:string;
   search1:any;
   search2:any;
@@ -33,4 +34,9 @@ export class HeroViewComponent implements OnInit {
       )
   }
 
+  onFileChange(event, product: any) {
+    var filename = event.target.files[0].name;
+    console.log(filename);
+    product.productImage = filename;
+  }
 }

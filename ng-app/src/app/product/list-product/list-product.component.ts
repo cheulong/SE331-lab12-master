@@ -54,21 +54,16 @@ export class ListProductComponent implements OnInit {
   }
 
   @ViewChild('fileInput') inputEl: ElementRef;
-
   addProductObject(product:Product){
-    console.log(product)
-    let result: Product;
-    console.log(product)
-
-
-    this.productService.addProduct(product)
+    let result : Product;
+    let inputEl: HTMLInputElement = this.inputEl.nativeElement;
+    this.productService.addProduct(product, inputEl.files.item(0))
       .subscribe(resultProduct => {
         result = resultProduct
-        console.log("Test");
-        if (result != null){
-          this.router.navigate(['/list-product']);
-        }else{
-          alert("Error in adding the product");
+        if (result != null) {
+          this.router.navigate(['/view-product']);
+        } else {
+          alert('Error in adding the product');
         }
       });
 

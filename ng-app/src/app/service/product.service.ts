@@ -46,19 +46,27 @@ export class ProductService {
       })
       ;
   }
+  addProduct(product:Product,file:any):Observable<Product>{
+    const  formData = new FormData();
+    let fileName : string;
+    formData.append('file',file);
+    return this.http.post('http://localhost:8080/product/image/',formData).flatMap(fileName=>{
+      product.image = fileName.text();
+      let headers = new Headers({'Content-Type': 'application/json'});
+      let options = new RequestOptions({headers: headers, method: 'post'});
+      let body = JSON.stringify(product);
+      return this.http.post('http://localhost:8080/product', body, options)
+        .map(res => {
+          return res.json()
+        })
+        .catch((error: any) => {
+          return Observable.throw(new Error(error.status))
+        })
+    })
 
-  addProduct(product:Product){
-    let headers = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers, method: 'post'});
-    let body = JSON.stringify(product);
-    return this.http.post('http://localhost:8080/product/', body, options)
-      .map(res => {
-        return res.json()
-      })
-      .catch((error: any) => {
-        return Observable.throw(new Error(error.status))
-      })
+
   }
+
 
   // addProduct(product: Product, file: any) {
   //   let formData = new FormData();
@@ -195,4 +203,6 @@ export class ProductService {
         ;
     }
   }
+
+
 }

@@ -70,21 +70,21 @@ public class ProductController {
     }
 
 
-    @PostMapping("/product/image")
-    public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
-        try {
-            BufferedImage img = ImageIO.read(file.getInputStream());
-            String oldFilename = file.getOriginalFilename();
-            String ext = FilenameUtils.getExtension(oldFilename);
-            String newFilename = Integer.toString(LocalTime.now().hashCode(), 16) + Integer.toString(oldFilename.hashCode(), 16) + "." + ext;
-            File targetFile = Files.createFile(Paths.get(imageServerDir + newFilename)).toFile();
-            ImageIO.write(img, ext, targetFile);
-
-            return ResponseEntity.ok(baseUrl + imageUrl + newFilename);
-        } catch (NullPointerException e) {
-            return ResponseEntity.status(202).build();
-        }
-    }
+//    @PostMapping("/product/image")
+//    public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
+//        try {
+//            BufferedImage img = ImageIO.read(file.getInputStream());
+//            String oldFilename = file.getOriginalFilename();
+//            String ext = FilenameUtils.getExtension(oldFilename);
+//            String newFilename = Integer.toString(LocalTime.now().hashCode(), 16) + Integer.toString(oldFilename.hashCode(), 16) + "." + ext;
+//            File targetFile = Files.createFile(Paths.get(imageServerDir + newFilename)).toFile();
+//            ImageIO.write(img, ext, targetFile);
+//
+//            return ResponseEntity.ok(baseUrl + imageUrl + newFilename);
+//        } catch (NullPointerException e) {
+//            return ResponseEntity.status(202).build();
+//        }
+//    }
     @GetMapping(
             value = "/product/images/{fileName:.+}",
             produces = {MediaType.IMAGE_GIF_VALUE, MediaType.IMAGE_JPEG_VALUE,MediaType.IMAGE_PNG_VALUE})
@@ -173,5 +173,27 @@ public class ProductController {
             //http code 204
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
+//    @Value("${server.baseUrl}")
+//    String baseUrl;
+//
+//    @Value("${server.imageUrl}")
+//    String imageUrl;
+    @PostMapping("/product/image")
+    public ResponseEntity<?> uploadImage(@RequestParam("file")MultipartFile file){
+        if (file.isEmpty()){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        try{
+            byte[] bytes = file.getBytes();
+            String oldFilename = file.getOriginalFilename();
+            String ext = FilenameUtils.getExtension(oldFilename);
+            String newFilename = Integer.toString(LocalTime.now().hashCode(),16)+Integer.toString(oldFilename.hashCode(),16)+"."+ext;
+            Path path = Paths.get(imageServerDir+newFilename);
+            Files.write(path,bytes);
+            return ResponseEntity.ok(baseUrl + imageUrl+ newFilename);
+        }catch (IOException e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+    }
 }
