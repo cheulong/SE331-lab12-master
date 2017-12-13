@@ -26,10 +26,9 @@ export class CartComponent implements OnInit {
 
     this.calculateTotalCartPrice();
   }
-  getItemForCart(): void{
-
+  changeItemCart(): void{
+    this.cartService.updateCart(this.cartItems);
     this.cartItems = this.cartService.getSelectedItems();
-
   }
   calculateTotalPrice(item:Item){
 

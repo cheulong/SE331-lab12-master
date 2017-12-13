@@ -20,12 +20,16 @@ export class CartService{
   getSelectedItems():Item[]{
     return JSON.parse(localStorage.getItem("cart"));
   }
-  updateCart(product?: Product, productQuantity?: number,totalPrice?:number){
+  updateCart(cartItem:Item[]){
     if(localStorage.getItem("cart")){
-      localStorage.removeItem('cart');
+      this.selectedItems=JSON.parse(localStorage.getItem("cart"));
+    }else{
+      this.selectedItems=[];
     }
-    localStorage.setItem('cart',JSON.stringify(this.selectedItems));
+    this.selectedItems=cartItem;
+    localStorage.setItem("cart",JSON.stringify(this.selectedItems));
   }
+
   setVoucher(voucher:number):any{
     if(voucher==0.05)
     this.getVoucherPrice=voucher;

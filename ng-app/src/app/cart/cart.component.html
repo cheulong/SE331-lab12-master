@@ -15,7 +15,7 @@
     <td>{{item.product.productId}}</td>
     <td>{{item.product.productName}}</td>
     <td>{{item.product.productPrice}}$</td>
-    <td><input type="text" [(ngModel)]="item.productQuantity" (keyup)="calculateTotalPrice(item)"></td>
+    <td><input type="text" [(ngModel)]="item.productQuantity" (keyup)="calculateTotalPrice(item)" (keyup)="changeItemCart()"></td>
     <td>{{item.totalPrice}}$</td>
     <td><button  type="button" class="btn-delete"(click)="removeItem(i,item)"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
     </tr>
