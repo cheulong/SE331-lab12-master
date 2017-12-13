@@ -182,7 +182,7 @@ public class DataLoader implements ApplicationRunner{
 
 
         userSecurityRepository.save(user1);
-        
+
         userSecurityRepository.save(user2);
         userSecurityRepository.save(user3);
     }
