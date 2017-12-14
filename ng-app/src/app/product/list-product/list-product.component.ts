@@ -55,6 +55,7 @@ export class ListProductComponent implements OnInit {
 
   @ViewChild('fileInput') inputEl: ElementRef;
   addProductObject(product:Product){
+    console.log(this.product)
     let result : Product;
     let inputEl: HTMLInputElement = this.inputEl.nativeElement;
     this.productService.addProduct(product, inputEl.files.item(0))

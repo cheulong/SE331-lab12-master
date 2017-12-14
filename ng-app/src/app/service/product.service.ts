@@ -2,8 +2,11 @@ import { Injectable } from '@angular/core';
 import {Http, RequestOptions,Headers, Response,URLSearchParams} from "@angular/http";
 import {Product} from "../product/product";
 import {Observable} from "rxjs/Rx";
-import 'rxjs/add/operator/toPromise';
+
 import {SlipImage} from "../submit-slip/slipImage";
+
+
+
 
 @Injectable()
 export class ProductService {
@@ -52,7 +55,7 @@ export class ProductService {
     const formData = new FormData();
     let fileName: string;
     formData.append('file', file);
-    return this.http.post('http://localhost:8080/product/images/', formData).flatMap(fileName => {
+    return this.http.post('http://localhost:8080/product/image/', formData).flatMap(fileName => {
       product.image = fileName.text();
       let headers = new Headers({'Content-Type': 'application/json'});
       let options = new RequestOptions({headers: headers, method: 'post'});

@@ -123,10 +123,10 @@ public class ProductController {
 
     }
 
-    @PostMapping("/product/")
-    @ResponseStatus(value=HttpStatus.OK)
-    public ResponseEntity<?> addProduct(@RequestBody Product product) {
-        productService.add(product);
+
+    @PostMapping("/product")
+    public ResponseEntity<?> add(@RequestBody Product product){
+        productService.save(product);
         return ResponseEntity.ok(product);
     }
 

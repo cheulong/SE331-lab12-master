@@ -61,11 +61,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+//                .antMatchers("/course").permitAll()
+//                .antMatchers("/course").permitAll()
+//                .antMatchers("/course").permitAll()
+//                .antMatchers("/course").permitAll()
+//                .antMatchers("/course").permitAll()
+//                .antMatchers("/course").permitAll()
+//                .antMatchers("/course").permitAll()
+//                .antMatchers("/course").permitAll()
+//                .antMatchers("/course").permitAll()
+//                .antMatchers("/h2-console/**","/refresh","/images/**").permitAll()
 
-                .antMatchers(HttpMethod.POST,"/course").hasRole("ADMIN")
-                .antMatchers("/auth/**","/h2-console/**","/refresh","/product/images/**").permitAll()
-                .antMatchers("/product/images").permitAll()
-                .antMatchers(HttpMethod.POST,"/product").permitAll()
+//                .anyRequest().authenticated()
+                .antMatchers("/auth").anonymous()
                 .anyRequest().permitAll();
 
         // Custom JWT based security filter
