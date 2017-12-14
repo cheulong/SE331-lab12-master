@@ -10,7 +10,9 @@ spring:
 server:
   baseUrl: http://localhost:8080/
   imageUrl: product/images/
+  slipImageUrl: slip/images/
   imageServerDir: c:/images/lab09/
+  slipImageDir: c:/images/slips/
 jwt:
   header: Authorization
   secret: mySecret

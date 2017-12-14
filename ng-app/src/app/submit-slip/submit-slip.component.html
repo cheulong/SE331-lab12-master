@@ -2,8 +2,8 @@
 
   <!--<div class="signin-form collapse" id="collapseExample">-->
   <h3>Submit</h3>
-
-  <button class="btn btn-primary btn-signup"  type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  <input #fileInput type="file" class="btn btn-default" id="exampleInputFile" (change)="onFileChange($event,slip)" >
+  <button (click)="addSlip(slip)" class="btn btn-primary btn-signup"  type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
    SubmitSlip
   </button>
 

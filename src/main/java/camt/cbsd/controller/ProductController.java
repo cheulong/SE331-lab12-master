@@ -45,6 +45,12 @@ public class ProductController {
     String imageServerDir;
     String imageUrl;
     String baseUrl;
+    String slipImageUrl;
+    String slipImageDir;
+
+    public  void  setSlipImageDir(String slipImageDir){this.slipImageDir=slipImageDir;}
+
+    public  void setSlipImageUrl(String slipImageUrl){this.slipImageUrl=slipImageUrl;}
 
     public void setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
@@ -118,6 +124,7 @@ public class ProductController {
     }
 
     @PostMapping("/product/")
+    @ResponseStatus(value=HttpStatus.OK)
     public ResponseEntity<?> addProduct(@RequestBody Product product) {
         productService.add(product);
         return ResponseEntity.ok(product);
@@ -196,4 +203,23 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
+    @PostMapping("/slip/image")
+    public ResponseEntity<?> uploadSlipImage(@RequestParam("file")MultipartFile file){
+        if (file.isEmpty()){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        try{
+            byte[] bytes = file.getBytes();
+            String oldFilename = file.getOriginalFilename();
+            String ext = FilenameUtils.getExtension(oldFilename);
+            String newFilename = Integer.toString(LocalTime.now().hashCode(),16)+Integer.toString(oldFilename.hashCode(),16)+"."+ext;
+            Path path = Paths.get(slipImageDir+newFilename);
+            Files.write(path,bytes);
+            return ResponseEntity.ok(baseUrl + slipImageUrl+ newFilename);
+        }catch (IOException e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+    }
+
 }
