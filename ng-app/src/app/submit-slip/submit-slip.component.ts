@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 })
 export class SubmitSlipComponent implements OnInit {
   slip: any={};
+  isSlip=false;
   constructor(private productService:ProductService,private router:Router) { }
 
   ngOnInit() {
@@ -17,7 +18,7 @@ export class SubmitSlipComponent implements OnInit {
 
   @ViewChild('fileInput') inputEl: ElementRef;
   addSlip(slip:SlipImage){
-
+    this.isSlip=true;
     let result : SlipImage;
     let inputEl: HTMLInputElement = this.inputEl.nativeElement;
     this.productService.addSlip(slip, inputEl.files.item(0))

@@ -6,7 +6,7 @@
   <button (click)="addSlip(slip)" class="btn btn-primary btn-signup"  type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
    SubmitSlip
   </button>
-
+  <span [hidden]=!isSlip ><p style="color: green">Submit slip success</p></span>
 </form>
 
 

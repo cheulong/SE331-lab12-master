@@ -7,6 +7,7 @@ import {SlipImage} from "../submit-slip/slipImage";
 
 @Injectable()
 export class ProductService {
+
   private headers = new Headers({ 'Content-Type': 'application/json' });
   constructor(private http: Http) {
   }
@@ -47,11 +48,11 @@ export class ProductService {
       })
       ;
   }
-  addProduct(product:Product,file:any){
-    const  formData = new FormData();
-    let fileName : string;
-    formData.append('file',file);
-    return this.http.post('http://localhost:8080/product/image/',formData).flatMap(fileName=>{
+  addProduct(product:Product,file:any):Observable<Product> {
+    const formData = new FormData();
+    let fileName: string;
+    formData.append('file', file);
+    return this.http.post('http://localhost:8080/product/images/', formData).flatMap(fileName => {
       product.image = fileName.text();
       let headers = new Headers({'Content-Type': 'application/json'});
       let options = new RequestOptions({headers: headers, method: 'post'});
@@ -64,11 +65,10 @@ export class ProductService {
           return Observable.throw(new Error(error.status))
         })
     })
-
-
   }
 
   addSlip(product:SlipImage,file:any):Observable<SlipImage>{
+
     const  formData = new FormData();
     let fileName : string;
     formData.append('file',file);
